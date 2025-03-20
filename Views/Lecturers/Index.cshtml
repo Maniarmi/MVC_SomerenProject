@@ -1,0 +1,52 @@
+﻿@model List<MVC_SomerenProject.Models.Lecturers>
+
+@{
+    ViewData["Title"] = "Lecturers";
+}
+
+<a href="/Lecturers/Add">Create New</a>
+
+<div class="text-center">
+    <h1 class="display-4">Lecturers</h1>
+    @if (Model != null && Model.Any())
+    {
+        <p>Number of Lecturers in the list: @Model.Count</p>
+    }
+    else
+    {
+        <p>No lecturers found.</p>
+    }
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>LecturerNumber</th>
+            <th>FirstName</th>
+            <th>LastName</th>
+            <th>PhoneNumber</th>
+            <th>Age</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @{
+            foreach (var lecturers in Model)
+            {
+                <tr>
+                    <td>@lecturers.LecturerNumber</td>
+                    <td>@lecturers.FirstName</td>
+                    <td>@lecturers.LastName</td>
+                    <td>@lecturers.PhoneNumber</td>
+                    <td>@lecturers.Age</td>
+                    <td>
+                        <a href="/Lecturers/Edit/@lecturers.LecturerNumber">Edit</a> |
+                        <a href="/Lecturers/Delete/@lecturers.LecturerNumber">Delete</a>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+
+

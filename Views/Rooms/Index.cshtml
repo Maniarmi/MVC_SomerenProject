@@ -1,0 +1,48 @@
+﻿@model List<MVC_SomerenProject.Models.Rooms>
+
+@{
+    ViewData["Title"] = "Rooms";
+}
+
+<a href="/Rooms/Add">Create New</a>
+
+<div class="text-center">
+    <h1 class="display-4">Rooms</h1>
+    @if (Model != null && Model.Any())
+    {
+        <p>Number of Rooms in the list: @Model.Count</p>
+    }
+    else
+    {
+        <p>No rooms found.</p>
+    }
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>RoomNumber</th>
+            <th>RoomSize</th>
+            <th>RoomType</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @{
+            foreach (var rooms in Model)
+            {
+                <tr>
+                    <td>@rooms.RoomNumber</td>
+                    <td>@rooms.RoomSize</td>
+                    <td>@rooms.RoomType</td>
+                    <td>
+                        <a href="/Rooms/Edit/@rooms.RoomNumber">Edit</a> |
+                        <a href="/Rooms/Delete/@rooms.RoomNumber">Delete</a>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+
+

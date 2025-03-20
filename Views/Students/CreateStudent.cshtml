@@ -1,0 +1,38 @@
+﻿@model MVC_SomerenProject.Models.Students
+
+@{
+	ViewData["Title"] = "Create Student";
+}
+
+<h4>New Student</h4>
+<form action="/Students/Add" method="POST">
+	<div class="form-group py-2">
+		<label for="StudentNumber">Student Number:</label>
+		<input type="text" id="StudentNumber" name="StudentNumber" class="form-control" required value="@Model?.StudentNumber" />
+	</div>
+
+	<div class="form-group py-2">
+		<label for="FirstName">First Name:</label>
+		<input type="text" id="FirstName" name="FirstName" class="form-control" required value="@Model?.FirstName" />
+	</div>
+
+	<div class="form-group py-2">
+		<label for="LastName">Last Name:</label>
+		<input type="text" id="LastName" name="LastName" class="form-control" required value="@Model?.LastName" />
+	</div>
+
+	<div class="form-group py-2">
+		<label for="PhoneNumber">Phone Number:</label>
+		<input type="text" id="PhoneNumber" name="PhoneNumber" class="form-control" required value="@Model?.PhoneNumber" />
+	</div>
+
+	<div class="form-group py-2">
+		<label for="Class">Class:</label>
+		<input type="text" id="Class" name="Class" class="form-control" required value="@Model?.Class" />
+	</div>
+
+	<button type="submit" class="btn btn-primary">Add</button>
+</form>
+
+<a href="/Students/Index">Back to List</a>
+
