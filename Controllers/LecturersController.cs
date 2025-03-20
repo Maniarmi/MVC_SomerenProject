@@ -4,112 +4,102 @@ using MVC_SomerenProject.Repositories.LecturersRepo;
 
 namespace MVC_SomerenProject.Controllers
 {
-    public class LecturersController : Controller
-    {
-        private readonly ILecturersRepository _lecturersRepository;
+	public class LecturersController : Controller
+	{
+		private readonly ILecturersRepository _lecturersRepository;
 
-        public LecturersController(ILecturersRepository lecturersRepository)
-        {
-            _lecturersRepository = lecturersRepository;
-        }
+		public LecturersController(ILecturersRepository lecturersRepository)
+		{
+			_lecturersRepository = lecturersRepository;
+		}
 
 
-        public IActionResult Index()
-        {
-            List<Lecturers> lecturers = _lecturersRepository.GetAll();
-            if (lecturers == null || lecturers.Count == 0)
-            {
-                return View(new List<Lecturers>()); // Return empty list instead of null
-            }
-            return View(lecturers);
-        }
+		public IActionResult Index()
+		{
+			List<Lecturers> lecturers = _lecturersRepository.GetAll();
+			if (lecturers == null || lecturers.Count == 0)
+			{
+				return View(new List<Lecturers>()); 
+			}
+			return View(lecturers);
+		}
 
-        //Get: StudentsController/Create 
-        [HttpGet]
-        public ActionResult Add()
-        {
-            return View("CreateLecturer");
-        }
+		
+		[HttpGet]
+		public ActionResult Add()
+		{
+			return View("CreateLecturer");
+		}
 
-        [HttpPost]
-        public IActionResult Add(Lecturers lecturers)
-        {
-            try
-            {
-                _lecturersRepository.Add(lecturers);
-                return View("CreateLecturer", lecturers);
-            }
-            catch
-            {
-                return BadRequest(new { message = "Lecturer Is Not added" });
-            }
+		[HttpPost]
+		public IActionResult Add(Lecturers lecturers)
+		{
+			try
+			{
+				_lecturersRepository.Add(lecturers);
+				return View("CreateLecturer", lecturers);
+			}
+			catch
+			{
+				return BadRequest(new { message = "Lecturer Is Not added" });
+			}
 
-        }
+		}
 
-    //    //Get: StudentsController/Edit
-    //    //[HttpGet]
-    //    public ActionResult Edit(int? StudentNumber)
-    //    {
-    //        if (StudentNumber == null)
-    //        {
-    //            return NotFound();
-    //        }
-    //        //Get user via repository 
-    //        Students? students = _studentsRepository.GetById((int)StudentNumber);
-    //        return View("EditStudent", students);
-    //    }
+		[HttpGet]
+		public ActionResult Edit(int? Id)
+		{
+			if (Id == null)
+			{
+				return NotFound();
+			}
+			
+			Lecturers? lecturers = _lecturersRepository.GetById((int)Id);
+			return View("EditLecturer", lecturers);
+		}
 
-    //    //Post : StudentsController/Edit 
-    //    //[HttpPost]
-    //    public ActionResult Edit(Students students)
-    //    {
-    //        try
-    //        {
-    //            //update user via repository 
-    //            _studentsRepository.Update(students);
+		 
+		[HttpPost]
+		public ActionResult Edit(Lecturers lecturers)
+		{
+			try
+			{ 
+				_lecturersRepository.Update(lecturers);
+				return RedirectToAction("Index");
+			}
+			catch (Exception ex)
+			{
+				return View("EditLecturer", lecturers);
+			}
+		}
 
-    //            //go back to user list (via Index) 
-    //            return RedirectToAction("Index");
-    //        }
-    //        catch (Exception ex)
-    //        {
-    //            //something's wrong, go back to view with user 
-    //            return View("EditStudent", students);
-    //        }
-    //    }
+		
+		[HttpGet]
+		public ActionResult Delete(int? Id)
+		{
+			if (Id == null)
+			{
+				return NotFound();
+			}
 
-    //    //Get: Studentsontroller/Delete
-    //    [HttpGet]
-    //    public ActionResult Delete(int? studentNumber)
-    //    {
-    //        if (studentNumber == null)
-    //        {
-    //            return NotFound();
-    //        }
+			Lecturers? lecturers = _lecturersRepository.GetById((int)Id);
+			return View("DeleteLecturer", lecturers);
+		}
 
-    //        //Get user via repository 
-    //        Students? students = _studentsRepository.GetById((int)studentNumber);
-    //        return View("DeleteStudent", students);
-    //    }
-
-    //    //Post : UserController/Delete 
-    //    [HttpPost]
-    //    public ActionResult Delete(int students)
-    //    {
-    //        try
-    //        {
-    //            //Delete user via repository 
-    //            _studentsRepository.Delete(students);
-
-    //            //go back to user list (via Index) 
-    //            return RedirectToAction("Index");
-    //        }
-    //        catch (Exception ex)
-    //        {
-    //            //something's wrong, go back to view with user 
-    //            return View("DeleteStudent", students);
-    //        }
-    //    }
-    //}
+		 
+		[HttpPost]
+		public ActionResult Delete(Lecturers lecturers)
+		{
+			try
+			{
+				_lecturersRepository.Delete(lecturers.LecturerNumber);
+				return RedirectToAction("Index");
+			}
+			catch (Exception ex)
+			{
+				return View("DeleteLecturer", lecturers);
+			}
+		}
+	}
 }
-}
+

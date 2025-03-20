@@ -4,7 +4,6 @@ using MVC_SomerenProject.Repositories.StudentsRepo;
 
 namespace MVC_SomerenProject.Controllers
 {
-    //[Route ("Students")]
     public class StudentsController : Controller
     {
         private readonly IStudentsRepository _studentsRepository;
@@ -25,7 +24,7 @@ namespace MVC_SomerenProject.Controllers
             return View(students);
         }
 
-        //Get: StudentsController/Create 
+         
         [HttpGet]
         public ActionResult Add()
         {
@@ -48,7 +47,7 @@ namespace MVC_SomerenProject.Controllers
 
         }
 
-        //Get: StudentsController/Edit
+        
         [HttpGet]
         public ActionResult Edit(int? Id)
         {
@@ -56,31 +55,31 @@ namespace MVC_SomerenProject.Controllers
             {
                 return NotFound();
             }
-            //Get user via repository 
+            //Get students via repository 
             Students? students = _studentsRepository.GetById((int)Id);
             return View("EditStudent", students);
         }
 
-        //Post : StudentsController/Edit 
+        
         [HttpPost]
         public ActionResult Edit(Students students)
         {
             try
             {
-                //update user via repository 
+                //update via repository 
                 _studentsRepository.Update(students);
 
-                //go back to user list (via Index) 
+                //go back to list (via Index) 
                 return RedirectToAction("Index");
             }
             catch (Exception ex)
             {
-                //something's wrong, go back to view with user 
+                //something's wrong, go back to view 
                 return View("EditStudent", students);
             }
         }
 
-        //Get: Studentsontroller/Delete
+        
         [HttpGet]
         public ActionResult Delete(int? Id)
         {
@@ -88,27 +87,22 @@ namespace MVC_SomerenProject.Controllers
             {
                 return NotFound();
             }
-
-            //Get user via repository 
+            
             Students? students = _studentsRepository.GetById((int)Id);
             return View("DeleteStudent", students);
         }
 
-        //Post : UserController/Delete 
+        
         [HttpPost]
         public ActionResult Delete(Students students)
         {
             try
             {
-                //Delete user via repository 
-                _studentsRepository.Delete(students.StudentNumber);
-
-                //go back to user list (via Index) 
+                _studentsRepository.Delete(students.StudentNumber); 
                 return RedirectToAction("Index");
             }
             catch (Exception ex)
-            {
-                //something's wrong, go back to view with user 
+            { 
                 return View("DeleteStudent", students);
             }
         }

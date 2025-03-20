@@ -21,12 +21,12 @@ namespace MVC_SomerenProject.Repositories.RoomsRepo
                 using (SqlConnection connection = new SqlConnection(_connectionString))
                 {
                     string query = $"INSERT INTO Rooms (RoomNumber, RoomSize, RoomType)" +
-                       "VALUES (@RoomNumber, @RoomSize, @RoomType); " +
+                       "VALUES (@id, @RoomSize, @RoomType); " +
                            "SELECT SCOPE_IDENTITY()";
                     SqlCommand command = new SqlCommand(query, connection);
 
                     // Use parameters to prevent SQL Injection
-                    command.Parameters.AddWithValue("@RoomNumber", rooms.RoomNumber);
+                    command.Parameters.AddWithValue("@id", rooms.RoomNumber);
                     command.Parameters.AddWithValue("@RoomSize", rooms.RoomSize);
                     command.Parameters.AddWithValue("@RoomType", rooms.RoomType);
                   
@@ -54,8 +54,8 @@ namespace MVC_SomerenProject.Repositories.RoomsRepo
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
-                string query = "UPDATE Rooms SET RoomSize = @RoomSize, RoomType = @RoomType, " +
-                       "WHERE RoomNumber = @id";
+                string query = "UPDATE Rooms SET RoomSize = @RoomSize, RoomType = @RoomType WHERE RoomNumber = @id "; 
+                       
 
                 SqlCommand command = new SqlCommand(query, connection);
                 command.Parameters.AddWithValue("@id", rooms.RoomNumber);

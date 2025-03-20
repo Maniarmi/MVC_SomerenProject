@@ -75,3 +75,4 @@ C:\Users\Ass\source\repos\MVC-SomerenProject\MVC-SomerenProject\bin\Debug\net8.0
 C:\Users\Ass\source\repos\MVC-SomerenProject\MVC-SomerenProject\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Security.Cryptography.Pkcs.dll
 C:\Users\Ass\source\repos\MVC-SomerenProject\MVC-SomerenProject\obj\Debug\net8.0\MVC-SomerenProject.csproj.AssemblyReference.cache
 C:\Users\Ass\source\repos\MVC-SomerenProject\MVC-SomerenProject\obj\Debug\net8.0\MVC-Some.B063AA2E.Up2Date
+C:\Users\Ass\source\repos\MVC-SomerenProject\MVC-SomerenProject\obj\Debug\net8.0\MVC-SomerenProject.sourcelink.json
