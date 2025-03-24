@@ -9,8 +9,8 @@
 	
 	<div class="form-group py-2">
 		<label for="StudentNumber">Student Number:</label>
-		<<input type="hidden" asp-for="StudentNumber" />  <!--Ensures StudentNumber is sent-->
-
+		<!--The readonly is used to the Id cannot be changed-->
+		<input type="text" id="StudentNumber" name="StudentNumber" class="form-control" required value="@Model?.StudentNumber" readonly />
 	</div>
 
 	<div class="form-group py-2">

@@ -1,0 +1,45 @@
+﻿@model List<MVC_SomerenProject.Models.Activities>
+
+@{
+    ViewData["Title"] = "Activities";
+}
+<a href="/Activities/Add">Create New</a>
+
+<div class="text-center">
+    <h1 class="display-4">Activities</h1>
+    @if (Model != null && Model.Any())
+    {
+        <p>Number of activities in the list: @Model.Count</p>
+    }
+    else
+    {
+        <p>No activities found.</p>
+    }
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Date</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @{
+            foreach (var activities in Model)
+            {
+                <tr>
+                    <td>@activities.Name</td>
+                    <td>@activities.Date</td>
+                    <td>@activities.Description</td>
+                    <td>
+                        <a href="/Activities/Edit/@activities.Name">Edit</a> |
+                        <a href="/Activities/Delete/@activities.Name">Delete</a>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

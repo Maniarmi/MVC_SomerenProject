@@ -8,7 +8,7 @@
 <form action="/Lecturers/Delete" method="POST">
 	<div class="form-group py-2">
 		<label for="LecturerNumber">Lecturer Number:</label>
-		<input type="text" id="LecturerNumber" name="LecturerNumber" class="form-control" required value="@Model?.LecturerNumber" />
+		<input type="hidden" asp-for="LecturerNumber" />
 	</div>
 
 	<div class="form-group py-2">
