@@ -1,0 +1,14 @@
+﻿@model MVC_SomerenProject.Models.Drinks
+
+@{
+    ViewData["Title"] = "DeleteDrink";
+}
+
+<div class="controller_body">
+    <form asp-action="DeleteDrink" asp-controller="Drinks" method="post">
+        <input type="hidden" name="DrinkId" value="@Model?.DrinkId" />
+
+        <button type="submit" class="add_entity_main">Confirm Delete</button>
+    </form>
+</div>
+

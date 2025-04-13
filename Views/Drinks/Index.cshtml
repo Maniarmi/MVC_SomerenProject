@@ -1,0 +1,65 @@
+﻿@model List<MVC_SomerenProject.Models.Drinks>
+
+
+@{
+	ViewData["Title"] = "Drinks";
+}
+<a href="/Drinks/AddDrink" class="add_entity">Add Drink</a>
+
+<table class="table">
+	<thead>
+
+		<tr class="main_tr">
+			<th>Drink Name</th>
+			<th>Category</th>
+			<th>Stock</th>
+			<th>Action</th>
+
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (Drinks drink in Model)
+		{
+			<tr>
+				<td>@drink.Name</td>
+				<td>@drink.Category</td>
+				<td>@drink.Stock</td>
+
+				<td>
+					<a href="/Drinks/DeleteDrink/@drink.DrinkId" class="add_entity">Delete Drink</a>
+
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>
+
+<table class="table">
+	<thead>
+		<tr class="main_tr">
+			<th>Student Number</th>
+			<th>First Name</th>
+			<th>Last Name</th>
+			<th>Class</th>
+			<th>Action</th>
+		</tr>
+	</thead>
+	<tbody>
+		@{
+			foreach (var student in ViewBag.Students)
+			{
+				<tr>
+					<td>@student.StudentNumber</td>
+					<td>@student.FirstName</td>
+					<td>@student.LastName</td>
+					<td>@student.Class</td>
+
+					<td><a class="add_entity" href="/Drinks/OrderDrink/@student.StudentNumber">Order Drink</a></td>
+				</tr>
+			}
+		}
+	</tbody>
+</table>
+
+
+

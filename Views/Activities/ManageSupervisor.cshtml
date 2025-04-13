@@ -1,0 +1,67 @@
+﻿@model LectureWithActiveityViewModel
+
+@{
+    ViewData["Title"] = "Manage Activity Supervisors";
+    var activities = ViewBag.Activity as MVC_SomerenProject.Models.Activities; 
+}
+
+<h2>@activities.Name - Manage Supervisors</h2>
+
+<h3>Supervisors</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Supervisor Name</th>
+            <th>Supervisor Number</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var lecturers in Model.Supervisor)
+        {
+            <tr>
+                <td>@lecturers.FirstName @lecturers.LastName</td>
+                <td>@lecturers.LecturerNumber</td>
+                <td>
+                    <form method="post" asp-action="RemoveSupervisor" asp-controller="Activities">
+                        @Html.AntiForgeryToken()
+                        <input type="hidden" name="name" value="@activities.Name"/>
+                        <input type="hidden" name="lecturerNumber" value="@lecturers.LecturerNumber" />
+                        <button type="submit" class="btn btn-danger">Remove</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<h2>None-Supervisors</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Supervisor Name</th>
+            <th>Supervisor Number</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var lecturers in Model.NonSupervisor)
+        {
+            <tr>
+                <td>@lecturers.FirstName @lecturers.LastName</td>
+                <td>@lecturers.LecturerNumber</td>
+
+                <td>
+                    <form method="post" asp-action="AddSupervisor" asp-controller="Activities">
+                        @Html.AntiForgeryToken()
+                        <input type="hidden" name="name" value="@activities.Name" />
+                        <input type="hidden" name="lecturerNumber" value="@lecturers.LecturerNumber" />
+                        <button type="submit" class="btn btn-danger">Add</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

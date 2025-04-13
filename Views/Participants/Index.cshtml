@@ -1,0 +1,90 @@
+﻿@model MVC_SomerenProject.Models.ParticipantAndNot
+
+@{
+	ViewData["Title"] = "Participants";
+}
+<a href="/Participants/Add">Create New</a>
+
+<div class="text-center">
+	@if (@Model.Participants.Count > 0)
+	{
+		<h1 class="display-4">@Model.Participants[0].Description</h1>
+	}
+	else
+	{
+		<h1 class="display-4">@Model.NotParticipants[0].Description</h1>
+	}
+	<h2 class="display-4">A list of students who ARE participating</h2>
+	@if (Model.Participants != null && Model.Participants.Count > 0 /*&& Model.Any()*/)
+	{
+		<p>Number of participants in the activity: @Model.Participants.Count</p>
+
+		<table class="table">
+			<thead>
+				<tr>
+					<th>LecturerNumber</th>
+					<th>First Name</th>
+					<th>Last Name</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				@{
+					foreach (var participants in Model.Participants)
+					{
+						<tr>
+							<td>@participants.StudentNumber</td>
+							<td>@participants.FirstName</td>
+							<td>@participants.LastName</td>
+							<td>
+								<a href="/Participants/Delete/@participants.StudentNumber">Delete</a>
+							</td>
+						</tr>
+					}
+				}
+			</tbody>
+		</table>
+	}
+	else
+	{
+		<p>No participants found.</p>
+	}
+
+
+	<h2 class="display-4">A list of students who ARE NOT participating</h2>
+
+	@if (Model.NotParticipants != null && Model.NotParticipants.Count > 0 /*&& Model.Any()*/)
+	{
+		<p>Number of participants not in the activity: @Model.NotParticipants.Count</p>
+
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Student Number</th>
+					<th>First Name</th>
+					<th>Last Name</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				@{
+					foreach (var participants in Model.NotParticipants)
+					{
+						<tr>
+							<td>@participants.StudentNumber</td>
+							<td>@participants.FirstName</td>
+							<td>@participants.LastName</td>
+						</tr>
+					}
+				}
+			</tbody>
+		</table>
+
+	}
+	else
+	{
+		<p>Everyone participates.</p>
+	}
+</div>
+
+

@@ -1,0 +1,45 @@
+﻿@{
+	ViewData["Title"] = "OrderDrink";
+}
+
+<div class="controller_body">
+	<form action="/Drinks/OrderDrink" method="POST">
+		<input type="hidden" name="StudentNumber" value="@Model?.StudentNumber" />
+		<article class="input_group">
+			<label for="DrinkId">Drink</label>
+			<select id="DrinkId" name="drinkId" class="input_field">
+				<option value="0">Select a drink</option>
+				@foreach (var drink in ViewBag.Drinks)
+				{
+					<option value="@drink.DrinkId">@drink.Name</option>
+				}
+			</select>
+		</article>
+		<article class="input_group">
+			<label for="Quantity">Quantity</label>
+			<input type="number" class="input_field" name="quantity" required />
+
+		</article>
+		<div class="form-group text-center">
+			<p class="mb-3">Please confirm your action</p>
+
+			<div class="form-check form-check-inline">
+				<input type="radio" id="confirmYes" class="form-check-input" name="confirmation" value="yes" required>
+				<label for="confirmYes" class="form-check-label">Yes</label>
+			</div>
+
+			<div class="form-check form-check-inline">
+				<input type="radio" id="confirmNo" class="form-check-input" name="confirmation" value="no">
+				<label for="confirmNo" class="form-check-label">No</label>
+			</div>
+
+
+
+
+		</div>
+
+
+		<button type="submit" class="add_entity_main">Order Drink</button>
+	</form>
+</div>
+

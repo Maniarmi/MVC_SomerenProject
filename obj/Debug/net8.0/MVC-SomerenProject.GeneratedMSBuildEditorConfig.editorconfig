@@ -34,6 +34,26 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWN0aXZpdGllc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Ass/source/repos/MVC-SomerenProject/MVC-SomerenProject/Views/Activities/ManageSupervisor.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWN0aXZpdGllc1xNYW5hZ2VTdXBlcnZpc29yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Ass/source/repos/MVC-SomerenProject/MVC-SomerenProject/Views/Drinks/AddDrink.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRHJpbmtzXEFkZERyaW5rLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Ass/source/repos/MVC-SomerenProject/MVC-SomerenProject/Views/Drinks/DeleteDrink.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRHJpbmtzXERlbGV0ZURyaW5rLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Ass/source/repos/MVC-SomerenProject/MVC-SomerenProject/Views/Drinks/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRHJpbmtzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Ass/source/repos/MVC-SomerenProject/MVC-SomerenProject/Views/Drinks/OrderDrink.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRHJpbmtzXE9yZGVyRHJpbmsuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Ass/source/repos/MVC-SomerenProject/MVC-SomerenProject/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -56,6 +76,18 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/Ass/source/repos/MVC-SomerenProject/MVC-SomerenProject/Views/Lecturers/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGVjdHVyZXJzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Ass/source/repos/MVC-SomerenProject/MVC-SomerenProject/Views/Participants/CreateParticipant.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFydGljaXBhbnRzXENyZWF0ZVBhcnRpY2lwYW50LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Ass/source/repos/MVC-SomerenProject/MVC-SomerenProject/Views/Participants/DeleteParticipant.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFydGljaXBhbnRzXERlbGV0ZVBhcnRpY2lwYW50LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Ass/source/repos/MVC-SomerenProject/MVC-SomerenProject/Views/Participants/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFydGljaXBhbnRzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Ass/source/repos/MVC-SomerenProject/MVC-SomerenProject/Views/Rooms/CreateRoom.cshtml]

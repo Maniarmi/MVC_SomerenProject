@@ -1,0 +1,22 @@
+﻿@model MVC_SomerenProject.Models.Participants
+
+@{
+	ViewData["Title"] = "Delete Participant";
+}
+
+<h4>Delete Participant</h4>
+<form action="/Participants/Delete" method="POST">
+	<div class="form-group py-2">
+		<label for="Name">Name:</label>
+		<input type="text" id="Name" name="Name" class="form-control" required value="@Model?.Name" />
+	</div>
+
+	<div class="form-group py-2">
+		<label for="StudentNumber">StudentNumber:</label>
+		<input type="text" id="StudentNumber" name="StudentNumber" class="form-control" required value="@Model?.StudentNumber" />
+	</div>
+
+	<button type="submit" class="btn btn-primary">Delete</button>
+</form>
+
+<a href="/Activities/Index">Back to List</a>

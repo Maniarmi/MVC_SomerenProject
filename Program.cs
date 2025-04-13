@@ -1,8 +1,11 @@
 using MVC_SomerenProject.Repositories;
 using MVC_SomerenProject.Repositories.ActivitiesRepo;
+using MVC_SomerenProject.Repositories.DrinksRepo;
 using MVC_SomerenProject.Repositories.LecturersRepo;
+using MVC_SomerenProject.Repositories.ParticipantsRepo;
 using MVC_SomerenProject.Repositories.RoomsRepo;
 using MVC_SomerenProject.Repositories.StudentsRepo;
+using MVC_SomerenProject.Repositories.SupervisorsRepo;
 
 namespace MVC_SomerenProject
 {
@@ -16,8 +19,11 @@ namespace MVC_SomerenProject
 			builder.Services.AddSingleton<IStudentsRepository, StudentsRepository>();
             builder.Services.AddSingleton<ILecturersRepository, LecturersRepository>();
             builder.Services.AddSingleton<IRoomsRepository, RoomsRepository>();
-			builder.Services.AddSingleton<IActivitiesRepository, ActivitiesRepository>();
-            builder.Services.AddControllersWithViews();
+            builder.Services.AddSingleton<IDrinksRepository, DrinksRepository>();
+            builder.Services.AddSingleton<IActivitiesRepository, ActivitiesRepository>();
+            builder.Services.AddSingleton<ISupervisorsRepository, SupervisorsRepository>();
+			builder.Services.AddSingleton<IParticipantsRepository,ParticipantsRepository>();
+			builder.Services.AddControllersWithViews();
 
 			var app = builder.Build();
 
